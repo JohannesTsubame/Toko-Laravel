@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mpembeli;
+use Illuminate\Support\Facades\DB;
 
 class Cpembeli extends Controller
 {
     public function index() {
-        $pembeli = Mpembeli::all();
+        $pembeli = DB::table("Pembeli")
+        ->select("Pembeli.*")
+        ->orderby("id_pembeli")
+        ->get();
+
         return view("pembeli.index", compact("pembeli"));
     }
 

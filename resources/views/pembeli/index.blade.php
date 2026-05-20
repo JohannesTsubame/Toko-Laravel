@@ -11,6 +11,11 @@
         justify-content: space-evenly
     }
 
+    th {
+        background: rgb(70, 84, 111) !important;
+        color: white !important;
+    }
+
     i {
         width: 15px;
         height: 15px;
@@ -39,7 +44,7 @@
             <th>Kota</th>
             <th>Kode Pos</th>
             <th>Alamat</th>
-            <th style="width: 7%">Tanggal Lahir</th>
+            <th style="width: 10%">Tanggal Lahir</th>
             <th style="width:10%; text-align:center">Action</th>
         </tr>
     </thead>

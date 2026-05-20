@@ -4,11 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Mbarang;
+use Illuminate\Support\Facades\DB;
 
 class Cbarang extends Controller
 {
     public function index() {
-        $barang = Mbarang::all();
+        $barang = DB::table("Barang")
+        ->select("Barang.*")
+        ->orderBy("id_barang")
+        ->get();    
+
         return view("barang.index", compact("barang"));
     }
 
@@ -45,14 +50,15 @@ class Cbarang extends Controller
         return redirect()->route("barang.index")->with("Sukses");
     }
 
-    public function edit(int $id) {
-        $barang = Mbarang::FindOrFail($id);
+    public function edit(int $id_barang) {
+        $barang = Mbarang::where("id_barang", $id_barang)->first();
+
         return view("barang.edit", compact("barang"));
     }
 
-    public function update(Request $request, int $id) {
+    public function update(Request $request, int $id_barang) {
 
-        $barang = Mbarang::FindorFail($id); 
+        $barang = Mbarang::where("id_barang", $id_barang)->first();
 
         $request->validate(
         [
@@ -81,8 +87,8 @@ class Cbarang extends Controller
 
     }
 
-    public function delete(int $id) {
-        $barang = Mbarang::FindOrFail($id);
+    public function delete(int $id_barang) {
+        $barang = Mbarang::where("id_barang", $id_barang)->first();
         $barang->delete();
         return redirect()->route('barang.index')->with('success', 'Data Barang berhasil dihapus');
     }

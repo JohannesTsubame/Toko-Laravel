@@ -1,6 +1,11 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .action {
         display: flex;
         justify-content: flex-end;
@@ -11,7 +16,7 @@
     }
 
     button {
-        width: 80px;
+        width: 120px;
     }
 </style>
 
@@ -21,6 +26,9 @@
 <div class="card">
     <div class="card-header" style="background: #303a4e">
         <h2 style="color:white">Tambah Data Barang</h2>
+        <a href="{{route('barang.index')}}">
+            <i class="fa fa-arrow-left" style="color: white; font-size:40px"></i>
+        </a>
     </div>
     <div class="card-body">
         <form action="{{route('barang.save')}}" method="POST">

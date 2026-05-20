@@ -67,13 +67,13 @@
                     </div>
                 </td>
                 <td class="action">
-                    <form action="{{route('barang.edit', $b->id)}}">
+                    <form action="{{route('barang.edit', $b->id_barang)}}">
                         <button type="submit" class="btn btn-info ml-2 mr-2">
                             <i class="fa fa-edit"></i>
                         </button>
                     </form>
                     <form 
-                    action="{{route('barang.delete', $b->id)}}"
+                    action="{{route('barang.delete', $b->id_barang)}}"
                     method="POST" 
                     onsubmit="return confirm('Yakin ingin menghapus data ini? id item : {{$b->id_barang}}');">
                         @csrf

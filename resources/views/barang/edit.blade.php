@@ -31,7 +31,7 @@
         </a>
     </div>
     <div class="card-body">
-        <form action="{{route('barang.save', $barang->id_barang)}}" method="POST">
+        <form action="{{route('barang.update', $barang->id_barang)}}" method="POST">
             @csrf
             @method("PUT")
             <div class="form-group row">
