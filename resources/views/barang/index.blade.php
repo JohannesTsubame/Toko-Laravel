@@ -11,10 +11,10 @@
         justify-content: space-evenly
     }
 
-    /* .action button {
-        width: 70px;
-        margin: 0 5px 0 5px;
-    } */
+    th {
+        background: rgb(70, 84, 111) !important;
+        color: white !important;
+    }
 
     i {
         width: 15px;
@@ -37,7 +37,7 @@
 
 <table style="width: 100%; font-size: 15px" class="table table-bordered table-hover">
     <thead>
-        <tr>
+        <tr >
             <th style="width: 3%">No</th>
             <th style="width: 7%">ID Barang</th>
             <th>Nama Barang</th>

@@ -1,6 +1,11 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+    }
+
     .action {
         display: flex;
         justify-content: flex-end;
@@ -11,7 +16,7 @@
     }
 
     button {
-        width: 80px;
+        width: 120px;
     }
 </style>
 
@@ -21,14 +26,21 @@
 <div class="card">
     <div class="card-header" style="background: #303a4e">
         <h2 style="color:white">Edit Data Barang</h2>
+        <a href="{{route('barang.index')}}">
+            <i class="fa fa-arrow-left" style="color: white; font-size:40px"></i>
+        </a>
     </div>
     <div class="card-body">
-        <form action="{{route('barang.save')}}" method="POST">
+        <form action="{{route('barang.save', $barang->id_barang)}}" method="POST">
             @csrf
+            @method("PUT")
             <div class="form-group row">
                 <label class="col-sm-2">ID Barang :</label>
                 <div class="col-sm-10">
-                    <input type="text" name="id_barang" class="form-control" required>
+                    <input type="text" 
+                           name="id_barang" 
+                           class="form-control" 
+                           value='{{old("id_barang", $barang->id_barang)}}' required readonly>
                 </div>
                 <div class ="error" style="margin-top: 10px">
                     @error('id_barang')
@@ -40,10 +52,14 @@
             <div class="form-group row">
                 <label class="col-sm-2">Nama Barang :</label>
                 <div class="col-sm-10">
-                    <input type="text" name="nama" class="form-control" required>
+                    <input type="text" 
+                    name="nama" 
+                    class="form-control" 
+                    value="{{ old("nama", $barang->nama) }}"
+                    required>
                 </div>
                 <div class ="error" style="margin-top: 10px">
-                    @error('id_barang')
+                    @error('nama')
                     {{$message}}
                     @enderror
                 </div>
@@ -52,10 +68,14 @@
             <div class="form-group row">
                 <label class="col-sm-2">Varian :</label>
                 <div class="col-sm-10">
-                    <input type="text" name="varian" class="form-control" required>
+                    <input type="text" 
+                    name="varian" 
+                    class="form-control" 
+                    value="{{ old("varian", $barang->varian) }}"
+                    required>
                 </div>
                 <div class ="error" style="margin-top: 10px">
-                    @error('id_barang')
+                    @error('varian')
                     {{$message}}
                     @enderror
                 </div>
@@ -64,10 +84,14 @@
             <div class="form-group row">
                 <label class="col-sm-2">Harga Beli (Rp) :</label>
                 <div class="col-sm-10">            
-                    <input type="number" name="harga_beli" class="form-control" required>
+                    <input type="number" 
+                    name="harga_beli" 
+                    class="form-control" 
+                    value="{{ old('harga_beli', $barang->harga_beli) }}"
+                    required>
                 </div>
                 <div class ="error" style="margin-top: 10px">
-                    @error('id_barang')
+                    @error('harga_beli')
                     {{$message}}
                     @enderror
                 </div>
@@ -76,10 +100,14 @@
             <div class="form-group row">
                 <label class="col-sm-2">Harga Jual (Rp) :</label>
                 <div class="col-sm-10">            
-                    <input type="number" name="harga_jual" class="form-control" required>
+                    <input type="number" 
+                    name="harga_jual" 
+                    class="form-control" 
+                    value="{{ old('harga_jual', $barang->harga_jual) }}"
+                    required>
                 </div>
                 <div class ="error" style="margin-top: 10px">
-                    @error('id_barang')
+                    @error('harga_jual')
                     {{$message}}
                     @enderror
                 </div>
@@ -87,11 +115,7 @@
 
             <div class="action">
                 <button type="submit" class="btn btn-primary ml-2 mr-2" style="font-size: 20px">
-                    Save
-                </button>
-                <a href="{{ route('barang.index') }}">
-                <button type="submit" class="btn btn-danger ml-2 mr-2" style="font-size: 20px">
-                    Exit
+                    <i class="fa fa-save mr-2"></i>  Save
                 </button>
                 </a>
             </div>

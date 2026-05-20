@@ -35,8 +35,8 @@
 @extends("menu")
 @section("content")
 
-<div class="card" style="width:50%; margin: 0 auto">
-    <div class="card-body" style="height: fit-content;">
+<div class="card">
+    <div class="card-body">
         <a href="{{ route('pembeli.index') }}">
             <i class="icon ion-ios-arrow-back" style="font-size:40px"></i>
         </a>
