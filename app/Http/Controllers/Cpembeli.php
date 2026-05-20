@@ -1,0 +1,87 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Mpembeli;
+
+class Cpembeli extends Controller
+{
+    public function index() {
+        $pembeli = Mpembeli::all();
+        return view("pembeli.index", compact("pembeli"));
+    }
+
+    public function add() {
+        return view("pembeli.add");
+    }
+
+    public function save(Request $request) {
+        $request->validate([
+            "id_pembeli" => "unique:Pembeli,id_pembeli|max:6",
+            "nama" => "string|min:3|regex:/^[\pL\s]+$/u",
+            "kode_pos" => "max:5|regex:/^[0-9]+$/"
+        ],
+        [
+            "id_pembeli.unique" => "ID Pembeli Sudah Ada",
+            "id_pembeli.max" => "ID Pembeli Maksimal 6 Karakter",
+            "nama.min" => "Nama Minimal 3 Karakter",
+            "nama.regex" => "Nama Hanya Boleh Alfabet atau Spasi",
+            "kode_pos.max" => "Kode Pos Maksimal 5 Karakter",
+            "kode_pos.regex" => "Kode Pos Hanya Boleh Angka"
+        ]);
+        
+        $pembeli = new Mpembeli();
+        $pembeli->id_pembeli = $request->id_pembeli;
+        $pembeli->nama = $request->nama;
+        $pembeli->jns_kelamin = $request->jns_kelamin;
+        $pembeli->alamat = $request->alamat;
+        $pembeli->kode_pos = $request->kode_pos;
+        $pembeli->kota = $request->kota;
+        $pembeli->tgl_lahir = $request->tgl_lahir;
+        $pembeli->save();
+
+        return redirect()->route("pembeli.index")->with("Sukses");
+    }
+
+    public function edit($id) {
+        $pembeli = Mpembeli::FindOrFail($id);
+        return view("pembeli.edit", compact("pembeli"));
+    }
+
+    public function update(Request $request, $id) {
+        $pembeli = Mpembeli::FindOrFail($id);
+
+        $request->validate([
+            "id_pembeli" => "max:6|unique:Pembeli,id_pembeli," . $pembeli->id,
+            "nama" => "string|min:3|regex:/^[\pL\s]+$/u",
+            "kode_pos" => "max:5|regex:/^[0-9]+$/"
+        ],
+        [
+            "id_pembeli.unique" => "ID Pembeli Sudah Ada",
+            "id_pembeli.max" => "ID Pembeli Maksimal 6 Karakter",
+            "nama.min" => "Nama Minimal 3 Karakter",
+            "nama.regex" => "Nama Hanya Boleh Alfabet atau Spasi",
+            "kode_pos.max" => "Kode Pos Maksimal 5 Karakter",
+            "kode_pos.regex" => "Kode Pos Hanya Boleh Angka"
+        ]);
+
+        $pembeli->id_pembeli = $request->id_pembeli;
+        $pembeli->nama = $request->nama;
+        $pembeli->jns_kelamin = $request->jns_kelamin;
+        $pembeli->alamat = $request->alamat;
+        $pembeli->kode_pos = $request->kode_pos;
+        $pembeli->kota = $request->kota;
+        $pembeli->tgl_lahir = $request->tgl_lahir;
+        $pembeli->save();
+
+        return redirect()->route("pembeli.index")->with("Sukses");
+    }
+
+    public function delete($id) {
+        $pembeli = Mpembeli::FindOrFail($id);
+        $pembeli->delete();
+        
+        return redirect()->route('pembeli.index')->with('success', 'Data Pembeli berhasil dihapus');
+    }
+}

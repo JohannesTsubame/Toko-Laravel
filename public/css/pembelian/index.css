@@ -1,0 +1,136 @@
+body {
+    background-color: rgb(33, 33, 45);
+    color:aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    padding-left: 5px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.TopBar {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    height: 7%;
+    background-color: rgb(14, 17, 26);
+    display: flex;
+}
+
+.TopBar a {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    border-right: 1px solid;
+    padding-right: 30px;
+    padding-left: 30px;
+    padding-top: 15px;
+    text-decoration: none;
+}
+
+.TopBar a:hover {
+    background-color: rgb(60, 61, 61);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.AddData input{
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius:15px;
+    margin-top:20px;
+    margin-right:10px;
+    font-size:25px; 
+    padding: 0px 25px 0px 25px;
+    height: 40px;
+    background-color: rgb(9, 8, 20);
+    border: 1px solid white;
+    color:white;
+}
+
+.AddData input:hover {
+    background-color: rgb(28, 28, 36);
+}
+
+.sheet {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+table {
+    border-collapse:separate;
+    border-spacing: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+        border-left:1px solid;
+        border-right:1px solid;
+        padding: 10px;
+        font-size:20px;
+        overflow: hidden;
+    }
+
+td:first-child, th:first-child {
+  border-left: none;
+}
+
+td:last-child, th:last-child {
+  border-right: none;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(64, 64, 64);
+}
+
+th {
+    /* border-top: 1px solid white; */
+    border-bottom:1px solid rgb(255, 255, 255);
+    background-color: rgb(46, 46, 46);
+    overflow: hidden;
+}
+
+.beli, .jual {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.action {
+    text-align: center;
+}
+
+.action form {
+    display: inline;
+}
+
+.action button {
+    font-size: 20px;
+    width: 45%;
+    border-radius: 10px;
+    border: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.action .edit {
+    background-color:rgb(121, 189, 240);
+}
+
+.action .edit:hover{
+    background-color: rgb(190, 242, 255);
+}
+
+.action .delete {
+    background-color: rgb(255, 96, 96);
+}
+
+.action .delete:hover {
+    background-color: rgb(255, 148, 148);
+}
+
