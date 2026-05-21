@@ -102,7 +102,9 @@
 
             <div class="action">
                 <button type="submit" class="btn btn-primary" 
-                style="font-size:20px">Save Data</button>
+                style="font-size:20px">
+                    <i class="fa fa-save mr-2"></i> Save
+                </button>
             </div>
         </form>
     </div>

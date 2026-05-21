@@ -95,13 +95,8 @@
 
             <div class="action">
                 <button type="submit" class="btn btn-primary ml-2 mr-2" style="font-size: 20px">
-                    Save
+                    <i class="fa fa-save mr-2"></i> Save
                 </button>
-                <a href="{{ route('barang.index') }}">
-                <button type="submit" class="btn btn-danger ml-2 mr-2" style="font-size: 20px">
-                    Exit
-                </button>
-                </a>
             </div>
         </form>
     </div>

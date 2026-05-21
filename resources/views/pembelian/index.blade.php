@@ -11,7 +11,15 @@
         justify-content: space-evenly
     }
 
-    
+    th {
+        background: rgb(70, 84, 111) !important;
+        color: white !important;
+    }
+
+    i {
+        width: 15px;
+        height: 15px;
+    }
 </style>
 
 @extends("menu")
