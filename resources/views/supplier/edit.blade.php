@@ -1,85 +1,105 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
 <style>
-    input {
-        width: 100%;
-        height: 5%;
-        font-size: 90px;
+    .card-header {
+        display: flex;
+        justify-content: space-between;
     }
 
-    form {
-        justify-content: center;
-        font-size: 20px;
+    .action {
+        display: flex;
+        justify-content: flex-end;
     }
 
-    form * {
-        margin-top: 10px;
-    }
-
-    .card-body *{
-        margin-top: 1%;
+    label {
+        font-size: 20px
     }
 
     button {
-        width: 100%;
-        height: 7%;
-        font-size: 20px;
+        width: 120px;
     }
 </style>
 
 @extends("menu")
 @section("content")
 
-<div class="card" style="width:50%; margin: 0 auto">
-    <div class="card-body" style="height: 100%; padding-bottom: 0px">
-        <a href="{{ route('supplier.index') }}">
-            <i class="icon ion-ios-arrow-back" style="font-size:40px"></i>
+<div class="card">
+    <div class="card-header" style="background: #303a4e">
+        <h2 style="color:white">Edit Data Pembeli</h2>
+        <a href="{{route('pembeli.index')}}">
+            <i class="fa fa-arrow-left" style="color: white; font-size:40px"></i>
         </a>
+    </div>
+    <div class="card-body">
         <form action="{{route('supplier.update', $supplier->id)}}" method="POST">
             @csrf
             @method("PUT")
-            <h2>ID Supplier : </h2>
-            <input type="text" name="id_supplier" required readonly value="{{old('id_supplier', $supplier->id_supplier)}}">
-            <div class="error" style="margin-top: 10px">
-                @error("id_supplier")
-                    {{$message}}
-                @enderror
+
+            <div class="form-group row">
+                <label class="col-sm-2">ID Supplier : </label>
+                <div class="col-sm-10">
+                    <input type="text" name="id_supplier" class="form-control" required readonly value="{{old('id_supplier', $supplier->id_supplier)}}">
+                </div>
+                <div class="error" style="margin-top: 10px">
+                    @error("id_supplier")
+                        {{$message}}
+                    @enderror
+                </div>
             </div>
 
-            <h2>Nama : </h2>
-            <input type="text" name="nama" required value="{{old('nama', $supplier->nama)}}">
-            <div class="error" style="margin-top: 10px">
-                @error("nama")
-                    {{$message}}
-                @enderror
+            <div class="form-group row">
+                <label class="col-sm-2">Nama : </label>
+                <div class="col-sm-10">
+                <input type="text" name="nama" class="form-control" required value="{{old('nama', $supplier->nama)}}">
+                </div>
+                <div class="error" style="margin-top: 10px">
+                    @error("nama")
+                        {{$message}}
+                    @enderror
+                </div>
             </div>
 
-            <h2>Alamat : </h2>
-            <input type = "text" name="alamat" required value="{{old('alamat', $supplier->alamat)}}">
-            <div class="error" style="margin-top: 10px">
-                @error("alamat")
-                    {{$message}}
-                @enderror
+            <div class="form-group row">
+                <label class="col-sm-2">Alamat : </label>
+                <div class="col-sm-10">
+                <input type = "text" name="alamat" class="form-control" required value="{{old('alamat', $supplier->alamat)}}">
+                </div>
+                <div class="error" style="margin-top: 10px">
+                    @error("alamat")
+                        {{$message}}
+                    @enderror
+                </div>
             </div>
 
-            <h2>Kode Pos :</h2>
-            <input type="text" name="kode_pos" required value="{{old('kode_pos', $supplier->kode_pos)}}">
-            <div class="error" style="margin-top: 10px">
-                @error("kode_pos")
-                    {{$message}}
-                @enderror
+            <div class="form-group row">
+                <label class="col-sm-2">Kode Pos :</label>
+                <div class="col-sm-10">
+                <input type="text" name="kode_pos" class="form-control" required value="{{old('kode_pos', $supplier->kode_pos)}}">
+                </div>
+                <div class="error" style="margin-top: 10px">
+                    @error("kode_pos")
+                        {{$message}}
+                    @enderror
+                </div>
             </div>
 
-            <h2>Kota :</h2>
-            <input type="text" name="kota" required value="{{old('kota', $supplier->kota)}}">
-            <div class="error" style="margin-top: 10px">
-                @error("kota")
-                    {{$message}}
-                @enderror
+            <div class="form-group row">
+                <label class="col-sm-2">Kota :</label>
+                <div class="col-sm-10">
+                <input type="text" name="kota" class="form-control" required value="{{old('kota', $supplier->kota)}}">
+                </div>
+                <div class="error" style="margin-top: 10px">
+                    @error("kota")
+                        {{$message}}
+                    @enderror
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary" style="font-size:20px; margin:3% 0% 0% 0%">
-                Save Data
-            </button>
+
+            <div class="action">
+                <button type="submit" class="btn btn-primary" style="font-size:20px">
+                    <i class="fa fa-save mr-2"></i> Save 
+                </button>
+            </div>
         </form>
     </div>
 </div>

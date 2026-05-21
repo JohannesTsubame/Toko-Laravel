@@ -32,8 +32,10 @@
 
             <div class="dropdown dropdown-profile">
                 <a href="" class="nav-link nav-link-profile" data-toggle="dropdown">
-                    <img src="img/img3.jpg" class="wd-32 rounded-circle" alt="">
-                    <span class="logged-name"><span class="hidden-xs-down">Jane Doe</span> <i class="fa fa-angle-down mg-l-3"></i></span>
+                    <img src="{{ asset('img/Pinos_Mrime.png') }}" class="wd-32 rounded-circle" alt="">
+                    <span class="logged-name"><span class="hidden-xs-down">
+                        Pinos Mrime
+                    </span> <i class="fa fa-angle-down mg-l-3"></i></span>
                 </a>
                 <div class="dropdown-menu wd-200">
                     <ul class="list-unstyled user-profile-nav">
@@ -48,10 +50,14 @@
     <div class="am-sideleft">
         <ul class="nav am-sideleft-tab">
             <li class="nav-item">
-                <a href="#" class="nav-link non active"><i class="icon ion-ios-home-outline tx-24"></i></a>
+                <a href="#" class="nav-link non active">
+                    <i class="icon ion-ios-home tx-24"></i>
+                </a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link non"></a>
+                <a href="#" class="nav-link non">
+                    <i class="icon ion-ios-person tx-24"></i>
+                </a>
             </li>
             <li class="nav-item">
                 <a href="#" class="nav-link non"></a>
@@ -71,42 +77,42 @@
                 <ul class="nav am-sideleft-menu">
                     <li class="nav-item">
                         <a href="{{route('dashboard')}}" class="nav-link">
-                            <i class="icon ion-ios-home-outline"></i>
+                            <i class="icon ion-ios-home"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="{{route('barang.index')}}" class="nav-link">
-                            <i class="icon ion-ios-box-outline"></i>
+                            <i class="icon ion-ios-box"></i>
                             <span>Barang</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="{{route('pembeli.index')}}" class="nav-link">
-                            <i class="icon ion-ios-people-outline"></i>
+                            <i class="icon ion-ios-people"></i>
                             <span>Pembeli</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="{{route('pembelian.index')}}" class="nav-link">
-                            <i class="icon ion-ios-cart-outline"></i>
+                            <i class="icon ion-ios-cart"></i>
                             <span>Pembelian</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="{{route('pesanan.index')}}" class="nav-link">
-                            <i class="icon ion-ios-paper-outline"></i>
+                            <i class="icon ion-ios-paper"></i>
                             <span>Pesanan</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="{{route('supplier.index')}}" class="nav-link">
-                            <i class="icon ion-ios-briefcase-outline"></i>
+                            <i class="icon ion-ios-briefcase"></i>
                             <span>Supplier</span>
                         </a>
                     </li>
@@ -135,7 +141,7 @@
 
     <div class="am-mainpanel">
         <div class="am-pagetitle">
-            <h5 class="am-title">Dashboard</h5>
+            <h5 class="am-title">   </h5>
         </div>
         <div class="am-pagebody">
 

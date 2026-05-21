@@ -16,7 +16,7 @@
         color: white !important;
     }
 
-    i {
+    .Header i, .action i {
         width: 15px;
         height: 15px;
     }
