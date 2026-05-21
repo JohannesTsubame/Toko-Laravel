@@ -25,8 +25,8 @@
 
 <div class="card">
     <div class="card-header" style="background: #303a4e">
-        <h2 style="color:white">Edit Data Pembeli</h2>
-        <a href="{{route('pembeli.index')}}">
+        <h2 style="color:white">Edit Data Supplier</h2>
+        <a href="{{route('supplier.index')}}">
             <i class="fa fa-arrow-left" style="color: white; font-size:40px"></i>
         </a>
     </div>
