@@ -1,24 +1,54 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<style>
-    .card-header {
-        display: flex;
-        justify-content: space-between;
-    }
+<head>
+    <style>
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .action {
-        display: flex;
-        justify-content: flex-end;
-    }
+        .action {
+            display: flex;
+            justify-content: flex-end;
+        }
 
-    label {
-        font-size: 20px
-    }
+        label {
+            font-size: 20px
+        }
 
-    button {
-        width: 120px;
-    }
-</style>
+        button {
+            width: 120px;
+        }
+    </style>
+
+    <script>
+        function ConfirmUpdate() {
+            Swal.fire({
+                icon : 'question',
+                iconColor : "#ffae5a",
+                title : 'Are You Sure You Want to Update the Data?',
+                confirmButtonText : 'Update',
+                confirmButtonColor : "#446fff",
+                showCancelButton : true,
+                theme : "dark",
+                background : "#202a3e",
+                reverseButtons : true,
+            }).then((result) => {
+                if (result.isConfirmed){
+                    document.getElementById("Form").submit()
+                }
+            });
+        }
+
+        document.addEventListener("keydown", function (event) {
+            if (event.key === "Enter") {
+                event.preventDefault();
+                ConfirmUpdate();
+            }
+        });
+    </script>
+</head>
+
 
 @extends("menu")
 @section("content")
@@ -31,10 +61,9 @@
         </a>
     </div>
     <div class="card-body">
-        <form action="{{route('pembelian.update', $pembelian->id_pembelian)}}" method="POST">
+        <form id="Form" action="{{route('pembelian.update', $pembelian->id_pembelian)}}" method="POST">
             @csrf
             @method("PUT")
-
 
             <div class="form-group row">
                 <label class="col-sm-2">ID Pembelian : </label>
@@ -84,9 +113,12 @@
             </div>
             
             <div class="action">
-            <button type="submit" class="btn btn-primary" style="font-size:20px;">
-                <i class="fa fa-save mr-2"></i> Save
-            </button>
+                <button type="button"
+                        class="btn btn-primary" 
+                        style="font-size: 20px"
+                        onclick="ConfirmUpdate()">
+                    <i class="fa fa-save mr-2"></i> Save
+                </button>
             </div>
         </form>
     </div>

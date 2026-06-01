@@ -1,26 +1,49 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<style>
-    .Header {
-        display: flex;
-        justify-content: space-between;
-    }
+<head>
+    <style>
+        .Header {
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .action {
-        display: flex;
-        justify-content: space-evenly
-    }
+        .action {
+            display: flex;
+            justify-content: space-evenly
+        }
 
-    th {
-        background: rgb(70, 84, 111) !important;
-        color: white !important;
-    }
+        th {
+            background: rgb(70, 84, 111) !important;
+            color: white !important;
+        }
 
-    .Header i, .action i {
-        width: 15px;
-        height: 15px;
-    }
-</style>
+        .Header i, .action i {
+            width: 15px;
+            height: 15px;
+        }
+    </style>
+
+    <script>
+        function ConfirmDelete(item, id) {
+            Swal.fire({
+                icon : 'warning',
+                iconColor : "#ff2222",
+                title : "Are You Sure You Want to Delete this Data?",
+                text : `Data ID PSN-${item}`,
+                confirmButtonText : 'Delete',
+                confirmButtonColor : "#ff2222",
+                showCancelButton : true,
+                theme : "dark",
+                background : "#202a3e",
+                reverseButtons : true,
+            }).then((result) => {
+                if (result.isConfirmed){
+                    document.getElementById(`Form${id}`).submit()
+                }
+            });
+        }
+    </script>
+</head>
 
 @extends("menu")
 @section("content")
@@ -58,19 +81,21 @@
                 <td>{{$psn->nama_pembeli}}</td>
                 <td>{{$psn->qty}}</td>
                 <td>{{$psn->tgl_pesan}}</td>
+                {{-- <td>{{ dd($psn->id_pesanan) }}</td> --}}
                 <td class="action">
                     <form action="{{route('pesanan.edit', $psn->id_pesanan)}}">
                         <button type="submit" class="btn btn-info">
                             <i class="fa fa-edit"></i>
                         </button>
                     </form>
-                    <form 
-                    action="{{route('pesanan.delete', $psn->id_pesanan)}}"
-                    method="POST" 
-                    onsubmit="return confirm('Yakin ingin menghapus data ini? id item : {{$psn->id_pesanan}}');">
-                        @csrf
+                    <form action="{{route('pesanan.delete', $psn->id_pesanan)}}"
+                          method="POST" 
+                          id="Form{{ $psn->id }}">
+                          @csrf
                         @method("DELETE")
-                        <button type="submit" class="btn btn-danger">
+                        <button type="button" 
+                                onclick="ConfirmDelete({{ $psn->id_pesanan }}, {{ $psn->id }})" 
+                                class="btn btn-danger ml-2 mr-2">
                             <i class="fa fa-trash"></i>
                         </button>
                     </form>

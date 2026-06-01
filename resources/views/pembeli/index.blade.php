@@ -1,26 +1,49 @@
 @vite(['resources/css/app.css', 'resources/js/app.js'])
 
-<style>
-    .Header {
-        display: flex;
-        justify-content: space-between;
-    }
+<head>
+    <style>
+        .Header {
+            display: flex;
+            justify-content: space-between;
+        }
 
-    .action {
-        display: flex;
-        justify-content: space-evenly
-    }
+        .action {
+            display: flex;
+            justify-content: space-evenly
+        }
 
-    th {
-        background: rgb(70, 84, 111) !important;
-        color: white !important;
-    }
+        th {
+            background: rgb(70, 84, 111) !important;
+            color: white !important;
+        }
 
-    .Header i, .action i {
-        width: 15px;
-        height: 15px;
-    }
-</style>
+        .Header i, .action i {
+            width: 15px;
+            height: 15px;
+        }
+    </style>
+
+    <script>
+        function ConfirmDelete(item, id) {
+            Swal.fire({
+                icon : 'warning',
+                iconColor : "#ff2222",
+                title : "Are You Sure You Want to Delete this Data?",
+                text : `Data ID PMB-${item}`,
+                confirmButtonText : 'Delete',
+                confirmButtonColor : "#ff2222",
+                showCancelButton : true,
+                theme : "dark",
+                background : "#202a3e",
+                reverseButtons : true,
+            }).then((result) => {
+                if (result.isConfirmed){
+                    document.getElementById(`Form${id}`).submit()
+                }
+            });
+        }
+    </script>
+</head>
 
 @extends("menu")
 @section("content")
@@ -65,13 +88,14 @@
                             <i class="fa fa-edit"></i>
                         </button>
                     </form>
-                    <form 
-                    action="{{route('pembeli.delete', $p->id)}}"
-                    method="POST" 
-                    onsubmit="return confirm('Yakin ingin menghapus data ini? id item : {{$p->id_pembeli}}');">
+                    <form action="{{route('pembeli.delete', $p->id)}}"      
+                          method="POST" 
+                          id="Form{{ $p->id }}">
                         @csrf
                         @method("DELETE")
-                        <button type="submit" class="btn btn-danger ml-2 mr-2">
+                        <button type="button" 
+                                onclick="ConfirmDelete({{ $p->id_pembeli }}, {{ $p->id }})" 
+                                class="btn btn-danger ml-2 mr-2">
                             <i class="fa fa-trash"></i>
                         </button>
                     </form>
