@@ -36,7 +36,7 @@ class Cpembelian extends Controller
 
         $pembelian->save();
 
-        return redirect()->route("pembelian.index")->with("Sukses");
+        return redirect()->route("pembelian.index")->with('save', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Saved', 'icon' => 'success']);
     }
 
     public function edit(int $id_pembelian) {
@@ -68,13 +68,13 @@ class Cpembelian extends Controller
             $pembelian->save();
         }
 
-        return redirect()->route("pembelian.index")->with("Sukses");
+        return redirect()->route("pembelian.index")->with('update', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Updated', 'icon' => 'success']);
     }
 
     public function delete(int $id_pembelian) {
         $pembelian =  Mpembelian::where("id_pembelian", $id_pembelian)->first();                                                                                                                                                        
         $pembelian->delete();
 
-        return redirect()->route("pembelian.index")->with("Sukses");
+        return redirect()->route("pembelian.index")->with('delete', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Deleted', 'icon' => 'success']);
     }
 }

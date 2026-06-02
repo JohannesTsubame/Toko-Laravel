@@ -48,25 +48,82 @@
 @extends("menu")
 @section("content")
 
+@if(session('save'))
+    <script>
+        Swal.fire({
+            title: "{{session('save')['judul']}}",
+            theme : "dark",
+            text: "{{session('save')['pesan']}}",
+            icon: "{{session('save')['icon']}}",
+            toast : true,
+            showConfirmButton : false,
+            timer : 2800,
+            timerProgressBar : true,
+            position :  "bottom-end"
+        });
+    </script>
+@elseif(session("update"))
+    <script>
+        Swal.fire({
+            title: "{{session('update')['judul']}}",
+            theme: "dark",
+            text: "{{session('update')['pesan']}}",
+            icon: "{{session('update')['icon']}}",
+            toast : true,
+            showConfirmButton : false,
+            timer : 2800,
+            timerProgressBar : true,
+            position :  "bottom-end"
+        });
+    </script>
+@elseif(session("delete"))
+    <script>
+        Swal.fire({
+            title: "{{session('delete')['judul']}}",
+            theme: "dark",
+            text: "{{session('delete')['pesan']}}",
+            icon: "{{session('delete')['icon']}}",
+            toast : true,
+            showConfirmButton : false,
+            timer : 2800,
+            timerProgressBar : true,
+            position :  "bottom-end"
+        });
+    </script>
+@endif
+
 <div class ="Header">
     <h1>TABLE BARANG :</h1>
 
-    <form action="{{ route('barang.add') }}">
-        <button type="submit" class ="btn btn-primary">
-            <i class="fa fa-plus"></i> Tambah Data
-        </button>
-    </form>
+    <div style="display: flex"> 
+        <form action="{{ route('barang.print_data') }}" target="_blank">
+            <button type="submit" class="btn btn-danger ml-2 w-90">
+                <i class="fa fa-print"></i> Print Data
+            </button>
+        </form>
+        <form action="{{ route('barang.export') }}" target="_blank">
+            <button type="submit" class="btn btn-success ml-2 w-90">
+                <i class="fa fa-table"></i> Export Data
+            </button>
+        </form>
+        <form action="{{ route('barang.add') }}">
+            <button type="submit" class ="btn btn-primary ml-2 w-90">
+                <i class="fa fa-plus"></i> Add Data
+            </button>
+        </form>
+    </div>
 </div>
 
 <table style="width: 100%; font-size: 15px" class="table table-bordered table-hover">
     <thead>
-        <tr >
+        <tr>
             <th style="width: 3%">No</th>
             <th style="width: 7%">ID Barang</th>
             <th>Nama Barang</th>
             <th>Varian</th>
             <th>Harga Beli</th>
             <th>Harga Jual</th>
+            <th style="width: fit-content">Foto</th>
             <th style="width:10%; text-align:center">Action</th>
         </tr>
     </thead>
@@ -88,6 +145,16 @@
                         <span>Rp</span>
                         <span>{{number_format($b->harga_jual,2,",",".")}}</span>
                     </div>
+                </td>
+                <td>
+                    @if($b->pic)
+                        <a href="{{ asset('uploads/barang_pic/' . $b->pic) }}" target=_blank>
+                            <img src="{{ asset('uploads/barang_pic/' . $b->pic) }}" 
+                                 style="width: 100px; height: auto;" />
+                        </a>
+                    @else
+                        No Foto
+                    @endif
                 </td>
                 <td class="action">
                     <form action="{{route('barang.edit', $b->id_barang)}}">

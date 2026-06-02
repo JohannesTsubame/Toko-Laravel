@@ -48,6 +48,50 @@
 @extends("menu")
 @section("content")
 
+@if(session('save'))
+    <script>
+        Swal.fire({
+            title: "{{session('save')['judul']}}",
+            theme : "dark",
+            text: "{{session('save')['pesan']}}",
+            icon: "{{session('save')['icon']}}",
+            toast : true,
+            showConfirmButton : false,
+            timer : 2800,
+            timerProgressBar : true,
+            position :  "bottom-end"
+        });
+    </script>
+@elseif(session("update"))
+    <script>
+        Swal.fire({
+            title: "{{session('update')['judul']}}",
+            theme: "dark",
+            text: "{{session('update')['pesan']}}",
+            icon: "{{session('update')['icon']}}",
+            toast : true,
+            showConfirmButton : false,
+            timer : 2800,
+            timerProgressBar : true,
+            position :  "bottom-end"
+        });
+    </script>
+@elseif(session("delete"))
+    <script>
+        Swal.fire({
+            title: "{{session('delete')['judul']}}",
+            theme: "dark",
+            text: "{{session('delete')['pesan']}}",
+            icon: "{{session('delete')['icon']}}",
+            toast : true,
+            showConfirmButton : false,
+            timer : 2800,
+            timerProgressBar : true,
+            position :  "bottom-end"
+        });
+    </script>
+@endif
+
 <div class="Header">
     <h1>TABLE PEMBELIAN :</h1>
 

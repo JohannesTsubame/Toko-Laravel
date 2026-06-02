@@ -34,7 +34,7 @@ class Cpesanan extends Controller
         $pesanan->tgl_pesan = $request->tgl_pesan;
         $pesanan->save();
 
-        return redirect()->route("pesanan.index")->with("Sukses");
+        return redirect()->route("pesanan.index")->with('save', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Saved', 'icon' => 'success']);
     }
 
     public function edit(int $id_pesanan) {
@@ -55,13 +55,13 @@ class Cpesanan extends Controller
 
             $pesanan->save();
         }
-        return redirect()->route("pesanan.index")->with("Sukses");
+        return redirect()->route("pesanan.index")->with('update', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Updated', 'icon' => 'success']);
     }
 
     public function delete(int $id_pesanan) {
         $pesanan = Mpesanan::where("id_pesanan", $id_pesanan)->first();
         $pesanan->delete();
 
-        return redirect()->route("pesanan.index")->with("Sukses, Berhasil Terhapus");
+        return redirect()->route("pesanan.index")->with('delete', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Deleted', 'icon' => 'success']);
     }
 }

@@ -46,7 +46,7 @@ class Cpembeli extends Controller
         $pembeli->tgl_lahir = $request->tgl_lahir;
         $pembeli->save();
 
-        return redirect()->route("pembeli.index")->with("Sukses");
+        return redirect()->route("pembeli.index")->with('save', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Saved', 'icon' => 'success']);
     }
 
     public function edit($id) {
@@ -80,13 +80,13 @@ class Cpembeli extends Controller
         $pembeli->tgl_lahir = $request->tgl_lahir;
         $pembeli->save();
 
-        return redirect()->route("pembeli.index")->with("Sukses");
+        return redirect()->route("pembeli.index")->with('update', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Updated', 'icon' => 'success']);
     }
 
     public function delete($id) {
         $pembeli = Mpembeli::FindOrFail($id);
         $pembeli->delete();
         
-        return redirect()->route('pembeli.index')->with('success', 'Data Pembeli berhasil dihapus');
+        return redirect()->route('pembeli.index')->with('delete', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Deleted', 'icon' => 'success']);
     }
 }

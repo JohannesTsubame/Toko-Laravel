@@ -27,7 +27,9 @@ Route::middleware("auth")->group(function() {
     Route::post("/barang/save", [Cbarang::class, "save"])->name("barang.save");
     Route::get("/barang/{id_barang}/edit", [Cbarang::class, "edit"])->name("barang.edit");
     Route::put("/barang/{id_barang}/update", [Cbarang::class, "update"])->name("barang.update");
-    Route::delete("/barang/{id_barang}/delete", [Cbarang::class, "delete"])->name("barang.delete");
+    Route::delete("/barang/{id_barang}/delete", [Cbarang::class, "delete"])->name("barang.delete"); 
+    Route::get('/barang/print_data', [Cbarang::class, 'print_data'])->name('barang.print_data');
+    Route::get('/barang/export', [Cbarang::class, 'export'])->name('barang.export');
 
     Route::get("/pembeli", [Cpembeli::class, "index"])->name("pembeli.index");
     Route::get("/pembeli/add", [Cpembeli::class, "add"])->name("pembeli.add");

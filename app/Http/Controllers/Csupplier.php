@@ -40,7 +40,7 @@ class Csupplier extends Controller
         $supplier->kota = $request->kota;
         $supplier->save();
 
-        return redirect()->route("supplier.index")->with("Sukses");
+        return redirect()->route("supplier.index")->with('save', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Saved', 'icon' => 'success']);
     }
 
     public function edit($id) {
@@ -77,13 +77,13 @@ class Csupplier extends Controller
         $supplier->kota = $request->kota;
         $supplier->save();
 
-        return redirect()->route("supplier.index")->with("Sukses");
+        return redirect()->route("supplier.index")->with('update', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Updated', 'icon' => 'success']);
     }
 
     public function delete($id) {
         $supplier = Msupplier::FindOrFail($id);
         $supplier->delete();
 
-        return redirect()->route("supplier.index")->with("Sukses");
+        return redirect()->route("supplier.index")->with('delete', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Saved', 'icon' => 'success']);
     }
 }
