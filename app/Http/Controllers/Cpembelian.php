@@ -77,4 +77,27 @@ class Cpembelian extends Controller
 
         return redirect()->route("pembelian.index")->with('delete', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Deleted', 'icon' => 'success']);
     }
+
+     public function print_data() {
+        $parang = DB::table("Pembelian")
+        ->select("Pembelian.*")
+        ->orderBy("id_pembelian")
+        ->get();
+
+        return view("pembelian.print_data", compact("pembelian"));
+    }
+
+    public function export() {
+        
+        $pembelian = DB::table("Pembelian")
+        ->select("Pembelian.*")
+        ->orderBy("id_pembelian")
+        ->get();
+
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=pembelian_310124023844.xlsx");
+
+        return view('pembelian.export', compact('pembelian'));
+    }
+
 }

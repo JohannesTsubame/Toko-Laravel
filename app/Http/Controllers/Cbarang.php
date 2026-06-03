@@ -130,7 +130,7 @@ class Cbarang extends Controller
         ->get();
 
         header("Content-type: application/vnd-ms-excel");
-        header("Content-Disposition: attachment; filename=Barang_310124023844.xls");
+        header("Content-Disposition: attachment; filename=Barang_310124023844.xlsx");
 
         return view('barang.export', compact('barang'));
     }

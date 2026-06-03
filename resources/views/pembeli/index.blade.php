@@ -94,12 +94,25 @@
 
 <div class ="Header">
     <h1>TABLE PEMBELI :</h1>
-    <form action="{{ route('pembeli.add') }}" class="AddData" >
-        <button type="submit" class ="btn btn-primary">
-            <i class="fa fa-plus"></i> Tambah Data
-        </button>
-    </form>
-</div>
+
+    <div style="display: flex">
+        <form action="{{ route('pembeli.print_data') }}" target="_blank">
+            <button type="submit" class="btn btn-danger ml-2 w-90">
+                <i class="fa fa-print"></i> Print Data
+            </button>
+        </form>
+        <form action="{{ route('pembeli.export') }}" target="_blank">
+            <button type="submit" class="btn btn-success ml-2 w-90">
+                <i class="fa fa-table"></i> Export Data
+            </button>
+        </form>
+        <form action="{{ route('pembeli.add') }}">
+            <button type="submit" class ="btn btn-primary ml-2 w-90">
+                <i class="fa fa-plus"></i> Add Data
+            </button>
+        </form>
+    </div>
+</div>  
 
 <table style="width: 100%" class="table table-bordered table-hover">
     <thead>

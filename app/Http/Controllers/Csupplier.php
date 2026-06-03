@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Msupplier;
 
+use Illuminate\Support\Facades\DB;
+
 class Csupplier extends Controller
 {
     public function index() {
@@ -86,4 +88,27 @@ class Csupplier extends Controller
 
         return redirect()->route("supplier.index")->with('delete', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Saved', 'icon' => 'success']);
     }
+
+     public function print_data() {
+        $supplier = DB::table("Supplier")
+        ->select("Supplier.*")
+        ->orderBy("id_supplier")
+        ->get();
+
+        return view("Supplier.print_data", compact("supplier"));
+    }
+
+    public function export() {
+        
+        $supplier = DB::table("Supplier")
+        ->select("Supplier.*")
+        ->orderBy("id_supplier")
+        ->get();
+
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=supplier_310124023844.xlsx");
+
+        return view('supplier.export', compact('supplier'));
+    }
+
 }

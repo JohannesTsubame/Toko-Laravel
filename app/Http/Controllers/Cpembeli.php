@@ -89,4 +89,27 @@ class Cpembeli extends Controller
         
         return redirect()->route('pembeli.index')->with('delete', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Deleted', 'icon' => 'success']);
     }
+
+     public function print_data() {
+        $pembeli = DB::table("Pembeli")
+        ->select("Pembeli.*")
+        ->orderBy("id_pembeli")
+        ->get();
+
+        return view("pembeli.print_data", compact("pembeli"));
+    }
+
+    public function export() {
+        
+        $pembeli = DB::table("Pembeli")
+        ->select("Pembeli.*")
+        ->orderBy("id_pembeli")
+        ->get();
+
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=pembeli_310124023844.xlsx");
+
+        return view('pembeli.export', compact('pembeli'));
+    }
+
 }

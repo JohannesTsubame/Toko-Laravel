@@ -37,6 +37,8 @@ Route::middleware("auth")->group(function() {
     Route::get("/pembeli/{id_pembeli}/edit", [Cpembeli::class, "edit"])->name("pembeli.edit");
     Route::put("/pembeli/{id_pembeli}/update", [Cpembeli::class, "update"])->name("pembeli.update");
     Route::delete("/pembeli/{id_pembeli}/delete", [Cpembeli::class, "delete"])->name("pembeli.delete");
+    Route::get('/pembeli/print_data', [Cpembeli::class, 'print_data'])->name('pembeli.print_data');
+    Route::get('/pembeli/export', [Cpembeli::class, 'export'])->name('pembeli.export');
 
     Route::get("/pembelian", [Cpembelian::class, "index"])->name("pembelian.index");
     Route::get("/pembelian/add", [Cpembelian::class, "add"])->name("pembelian.add");
@@ -44,6 +46,8 @@ Route::middleware("auth")->group(function() {
     Route::get("/pembelian/{id_pembelian}/edit", [Cpembelian::class, "edit"])->name("pembelian.edit");
     Route::put("/pembelian/{id_pembelian}/update", [Cpembelian::class, "update"])->name("pembelian.update");
     Route::delete("/pembelian/{id_pembelian}/delete", [Cpembelian::class, "delete"])->name("pembelian.delete");
+    Route::get('/pembelian/print_data', [Cpembelian::class, 'print_data'])->name('pembelian.print_data');
+    Route::get('/pembelian/export', [Cpembelian::class, 'export'])->name('pembelian.export');
 
     Route::get("/pesanan", [Cpesanan::class, "index"])->name("pesanan.index");
     Route::get("/pesanan/add", [Cpesanan::class, "add"])->name("pesanan.add");
@@ -51,6 +55,8 @@ Route::middleware("auth")->group(function() {
     Route::get("/pesanan/{id_pesanan}/edit", [Cpesanan::class, "edit"])->name("pesanan.edit");
     Route::put("/pesanan/{id_pesanan}/update", [Cpesanan::class, "update"])->name("pesanan.update");
     Route::delete("/pesanan/{id_pesanan}/delete", [Cpesanan::class, "delete"])->name("pesanan.delete");
+    Route::get('/pesanan/print_data', [Cpesanan::class, 'print_data'])->name('pesanan.print_data');
+    Route::get('/pesanan/export', [Cpesanan::class, 'export'])->name('pesanan.export');
 
     Route::get("/supplier", [Csupplier::class, "index"])->name("supplier.index");
     Route::get("/supplier/add", [Csupplier::class, "add"])->name("supplier.add");
@@ -58,6 +64,8 @@ Route::middleware("auth")->group(function() {
     Route::get("/supplier/{id}/edit", [Csupplier::class, "edit"])->name("supplier.edit");
     Route::put("/supplier/{id}/update", [Csupplier::class, "update"])->name("supplier.update");
     Route::delete("/supplier/{id}/delete", [Csupplier::class, "delete"])->name("supplier.delete");
+    Route::get('/supplier/print_data', [Csupplier::class, 'print_data'])->name('supplier.print_data');
+    Route::get('/supplier/export', [Csupplier::class, 'export'])->name('supplier.export');
 
     Route::post('/logout', function () {
         Auth::logout();

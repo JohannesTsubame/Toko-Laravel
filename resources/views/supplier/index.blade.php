@@ -95,11 +95,23 @@
 <div class ="Header">
     <h1>TABLE SUPPLIER :</h1>
 
-    <form action="{{ route('supplier.add') }}" class="AddData" >
-        <button class="btn btn-primary">
-            <i class="fa fa-plus"></i> Tambah Data
-        </button>
-    </form>
+    <div style="display: flex">
+        <form action="{{ route('barang.print_data') }}" target="_blank">
+            <button type="submit" class="btn btn-danger ml-2 w-90">
+                <i class="fa fa-print"></i> Print Data
+            </button>
+        </form>
+        <form action="{{ route('barang.export') }}" target="_blank">
+            <button type="submit" class="btn btn-success ml-2 w-90">
+                <i class="fa fa-table"></i> Export Data
+            </button>
+        </form>
+        <form action="{{ route('barang.add') }}">
+            <button type="submit" class ="btn btn-primary ml-2 w-90">
+                <i class="fa fa-plus"></i> Add Data
+            </button>
+        </form>
+    </div>
 </div>
 
 <table style="width: 100%" class="table table-bordered table-hover">

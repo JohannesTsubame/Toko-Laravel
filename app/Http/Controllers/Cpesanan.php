@@ -64,4 +64,27 @@ class Cpesanan extends Controller
 
         return redirect()->route("pesanan.index")->with('delete', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Deleted', 'icon' => 'success']);
     }
+
+     public function print_data() {
+        $pesanan = DB::table("Pesanan")
+        ->select("Pesanan.*")
+        ->orderBy("id_pesanan")
+        ->get();
+
+        return view("pesanan.print_data", compact("pesanan"));
+    }
+
+    public function export() {
+        
+        $pesanan = DB::table("Pesanan")
+        ->select("Pesanan.*")
+        ->orderBy("id_pesanan")
+        ->get();
+
+        header("Content-type: application/vnd-ms-excel");
+        header("Content-Disposition: attachment; filename=pesanan_310124023844.xlsx");
+
+        return view('pesanan.export', compact('pesanan'));
+    }
+
 }
