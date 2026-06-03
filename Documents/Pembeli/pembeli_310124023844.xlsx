@@ -1,0 +1,57 @@
+<body onload="window.print(); window.onafterprint = closeWindow;">
+    <h6>JONATHAN ANDREW WIJAYA - 310124023844</h4>
+    <h1>Data Pembeli </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width:7%">ID Pembeli</th>
+                <th style="width: 20%">Nama Pembeli</th>
+                <th>Kelamin</th>
+                <th>Kota</th>
+                <th>Kode Pos</th>
+                <th>Alamat</th>
+                <th style="width: 10%">Tanggal Lahir</th>
+            </tr>
+        </thead>
+        <tbody>
+                        <tr>
+                <td>Ferryman</td>
+                <td>Male</td>
+                <td>WRATH /// THIRD</td>
+                <td>5454</td>
+                <td>SHIP OF FOOLS</td>
+                <td>5454-05-04</td>
+            </tr>
+                        <tr>
+                <td>Power</td>
+                <td>Female</td>
+                <td>FRAUD /// THIRD</td>
+                <td>8383</td>
+                <td>DISINTEGRATION LOOP</td>
+                <td>0803-08-03</td>
+            </tr>
+                        <tr>
+                <td>Geryon</td>
+                <td>Male</td>
+                <td>FRAUD /// CLIMAX</td>
+                <td>8484</td>
+                <td>FINAL FLIGHT</td>
+                <td>8484-08-04</td>
+            </tr>
+                        <tr>
+                <td>Benjamin</td>
+                <td>Male</td>
+                <td>VIOLENCE /// CLIMAX</td>
+                <td>7474</td>
+                <td>...LIKE ANTENNAS TO HEAVEN</td>
+                <td>7474-07-04</td>
+            </tr>
+                    </tbody>
+    </table>
+
+    <script>
+        function closeWindow() {
+            window.close();
+        }
+    </script>
+</body>

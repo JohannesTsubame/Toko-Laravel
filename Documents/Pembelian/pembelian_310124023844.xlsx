@@ -6,24 +6,30 @@
             <tr>
                 <th style="width:9%">ID Pembelian</th>
                 <th>Nama Barang</th>
-                {{-- <th>Varian</th> --}}
+                
                 <th>Supplier</th>
                 <th>Quantity</th>
                 <th>Tanggal Pembelian</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($pembelian as $pmb)
-            <tr>
-                <td>PMBN-{{$pmb->id_pembelian}}</td>
-                <td>{{$pmb->nama_barang}}</td>
-                {{-- <td>{{$pmb->varian}}</td> --}}
-                <td>{{$pmb->nama_supplier}}</td>
-                <td>{{$pmb->qty}}</td>
-                <td>{{$pmb->tgl}}</td>
+                        <tr>
+                <td>PMBN-1</td>
+                <td>Railcannon</td>
+                
+                <td>Minos</td>
+                <td>21</td>
+                <td>1212-02-12</td>
             </tr>
-            @endforeach
-        </tbody>
+                        <tr>
+                <td>PMBN-2</td>
+                <td>Rocket</td>
+                
+                <td>Sisyphus</td>
+                <td>2</td>
+                <td>1414-01-04</td>
+            </tr>
+                    </tbody>
     </table>
 
     <script>

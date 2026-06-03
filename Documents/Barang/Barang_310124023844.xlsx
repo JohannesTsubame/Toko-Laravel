@@ -1,0 +1,183 @@
+<body onload="window.print(); window.onafterprint = closeWindow;">
+    <h6>JONATHAN ANDREW WIJAYA - 310124023844</h4>
+    <h1>Data Barang </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID Barang</th>
+                <th>Nama</th>
+                <th>Harga Beli</th>
+                <th>Harga Jual</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+                        <tr>
+                <td>1</td>
+                <td>Revolver</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>3.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>5.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>2</td>
+                <td>Shotgun</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>7.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>10.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>3</td>
+                <td>Nailgun</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>9.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>12.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>4</td>
+                <td>Railcannon</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>25.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>35.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>5</td>
+                <td>Rocket Launcher</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>18.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>23.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>6</td>
+                <td>Rocket</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>15.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>20.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>7</td>
+                <td>Sawblade</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>15.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>25.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>8</td>
+                <td>Revolver</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>6.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>9.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>9</td>
+                <td>Shotgun</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>7.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>10.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                        <tr>
+                <td>10</td>
+                <td>Jackhammer</td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>30.000,00</span>
+                    </div>
+                </td>
+                <td>
+                    <div class="beli">
+                        <span>Rp</span>
+                        <span>45.000,00</span>
+                    </div>
+                </td>
+            </tr>
+                    </tbody>
+    </table>
+
+    <script>
+        function closeWindow() {
+            window.close();
+        }
+    </script>
+</body>

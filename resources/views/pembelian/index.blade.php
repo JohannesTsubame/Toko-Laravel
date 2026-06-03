@@ -96,17 +96,17 @@
     <h1>TABLE PEMBELIAN :</h1>
 
     <div style="display: flex">
-        <form action="{{ route('barang.print_data') }}" target="_blank">
+        <form action="{{ route('pembelian.print_data') }}" target="_blank">
             <button type="submit" class="btn btn-danger ml-2 w-90">
                 <i class="fa fa-print"></i> Print Data
             </button>
         </form>
-        <form action="{{ route('barang.export') }}" target="_blank">
+        <form action="{{ route('pembelian.export') }}" target="_blank">
             <button type="submit" class="btn btn-success ml-2 w-90">
                 <i class="fa fa-table"></i> Export Data
             </button>
         </form>
-        <form action="{{ route('barang.add') }}">
+        <form action="{{ route('pembelian.add') }}">
             <button type="submit" class ="btn btn-primary ml-2 w-90">
                 <i class="fa fa-plus"></i> Add Data
             </button>

@@ -66,9 +66,10 @@ class Cpesanan extends Controller
     }
 
      public function print_data() {
-        $pesanan = DB::table("Pesanan")
-        ->select("Pesanan.*")
-        ->orderBy("id_pesanan")
+        $pesanan =  DB::table("Pesanan")
+        ->leftJoin("Barang", "Pesanan.id_barang", "=", "Barang.id")
+        ->leftJoin("Pembeli", "Pesanan.id_pelanggan", "=", "Pembeli.id")
+        ->select("Pesanan.*", "Barang.nama as nama_barang", "Barang.varian", "Pembeli.nama as nama_pembeli")
         ->get();
 
         return view("pesanan.print_data", compact("pesanan"));
@@ -76,9 +77,10 @@ class Cpesanan extends Controller
 
     public function export() {
         
-        $pesanan = DB::table("Pesanan")
-        ->select("Pesanan.*")
-        ->orderBy("id_pesanan")
+        $pesanan =  DB::table("Pesanan")
+        ->leftJoin("Barang", "Pesanan.id_barang", "=", "Barang.id")
+        ->leftJoin("Pembeli", "Pesanan.id_pelanggan", "=", "Pembeli.id")
+        ->select("Pesanan.*", "Barang.nama as nama_barang", "Barang.varian", "Pembeli.nama as nama_pembeli")
         ->get();
 
         header("Content-type: application/vnd-ms-excel");

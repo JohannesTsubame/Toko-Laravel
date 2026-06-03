@@ -1,0 +1,56 @@
+<body onload="window.print(); window.onafterprint = closeWindow;">
+    <h6>JONATHAN ANDREW WIJAYA - 310124023844</h4>
+    <h1>Data Barang </h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th style="width:10%">ID Pesanan</th>
+                <th>Nama Barang</th>
+                <th>Varian</th>
+                <th>Nama Pembeli</th>
+                <th>Quantity</th>
+                <th>Tanggal Pesanan</th>
+            </tr>
+        </thead>
+        <tbody>
+                        <tr>
+                <td>PSN-1</td>
+                <td>Shotgun</td>
+                <td>Sawed-On</td>
+                <td>Ferryman</td>
+                <td>4</td>
+                <td>1111-11-11</td>
+            </tr>
+                        <tr>
+                <td>PSN-2</td>
+                <td>Railcannon</td>
+                <td>Screwdriver</td>
+                <td>Power</td>
+                <td>2</td>
+                <td>1222-12-12</td>
+            </tr>
+                        <tr>
+                <td>PSN-3</td>
+                <td>Nailgun</td>
+                <td>Magnet</td>
+                <td>Power</td>
+                <td>2</td>
+                <td>2121-11-21</td>
+            </tr>
+                        <tr>
+                <td>PSN-4</td>
+                <td>Sawblade</td>
+                <td>Overdrive</td>
+                <td>Benjamin</td>
+                <td>2</td>
+                <td>4747-04-07</td>
+            </tr>
+                    </tbody>
+    </table>
+
+    <script>
+        function closeWindow() {
+            window.close();
+        }
+    </script>
+</body>

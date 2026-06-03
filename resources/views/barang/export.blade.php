@@ -28,10 +28,6 @@
                         <span>{{number_format($b->harga_jual,2,",",".")}}</span>
                     </div>
                 </td>
-                <td>
-                    <img src="{{ asset('uploads/barang_pic/' . $b->pic) }}" 
-                         style="width: 100px; height: auto;" />
-                </td>
             </tr>
             @endforeach
         </tbody>

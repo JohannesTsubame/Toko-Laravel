@@ -4,15 +4,17 @@
     <table class="table">
         <thead>
             <tr>
-                <th>ID Barang</th>
-                <th>Nama</th>
-                <th>Harga Beli</th>
-                <th>Harga Jual</th>
-                <th>Foto</th>
+                <th style="width:7%">ID Pembeli</th>
+                <th style="width: 20%">Nama Pembeli</th>
+                <th>Kelamin</th>
+                <th>Kota</th>
+                <th>Kode Pos</th>
+                <th>Alamat</th>
+                <th style="width: 10%">Tanggal Lahir</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($barang as $b)
+            @foreach ($pembeli as $p)
             <tr>
                 <td>{{$p->nama}}</td>
                 <td>{{$p->jns_kelamin}}</td>

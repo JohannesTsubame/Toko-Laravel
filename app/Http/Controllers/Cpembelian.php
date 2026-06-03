@@ -79,8 +79,10 @@ class Cpembelian extends Controller
     }
 
      public function print_data() {
-        $parang = DB::table("Pembelian")
-        ->select("Pembelian.*")
+        $pembelian = DB::table("Pembelian")
+        ->leftJoin("Barang", "Pembelian.id_barang", "=", "Barang.id")
+        ->leftJoin("Supplier", "Pembelian.id_supplier", "=", "Supplier.id")
+        ->select("Pembelian.*", "Barang.nama as nama_barang", "Barang.varian", "Supplier.nama as nama_supplier")
         ->orderBy("id_pembelian")
         ->get();
 
@@ -90,7 +92,9 @@ class Cpembelian extends Controller
     public function export() {
         
         $pembelian = DB::table("Pembelian")
-        ->select("Pembelian.*")
+        ->leftJoin("Barang", "Pembelian.id_barang", "=", "Barang.id")
+        ->leftJoin("Supplier", "Pembelian.id_supplier", "=", "Supplier.id")
+        ->select("Pembelian.*", "Barang.nama as nama_barang", "Barang.varian", "Supplier.nama as nama_supplier")
         ->orderBy("id_pembelian")
         ->get();
 
