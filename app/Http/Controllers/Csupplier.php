@@ -23,7 +23,8 @@ class Csupplier extends Controller
         $request->validate([
             "id_supplier" => "max:6|required|unique:Supplier,id_supplier",
             "nama" => "string|min:3|regex:/^[\pL\s]+$/u",
-            "kode_pos" => "min:5|regex:/^[0-9]+$/"
+            "kode_pos" => "min:5|regex:/^[0-9]+$/",
+            "pic" => "image|max:2048"
         ], 
         [
             "id_supplier.max" => "ID Supplier Maksimal 6 Karakter",
@@ -34,12 +35,21 @@ class Csupplier extends Controller
             "kode_pos.regex" => "Kode Pos Hanya Boleh Angka"
         ]);
 
+        $pic = $request->file("pic");
+        $filename = null;
+        if ($pic) {
+            $extension = $pic->getClientOriginalExtension();
+            $filename = date("YmdHis") . "." . $extension;
+            $pic->move(public_path("uploads/supplier_pic"), $filename);
+        }
+
         $supplier = new Msupplier();
         $supplier->id_supplier = $request->id_supplier;
         $supplier->nama = $request->nama;
         $supplier->alamat = $request->alamat;
         $supplier->kode_pos = $request->kode_pos;
         $supplier->kota = $request->kota;
+        $supplier->pic = $filename;
         $supplier->save();
 
         return redirect()->route("supplier.index")->with('save', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Saved', 'icon' => 'success']);
@@ -61,7 +71,8 @@ class Csupplier extends Controller
         $request->validate([
             "id_supplier" => "max:6|required|unique:Supplier,id_supplier," . $supplier->id,
             "nama" => "string|min:3|regex:/^[\pL\s]+$/u",
-            "kode_pos" => "min:5|regex:/^[0-9]+$/"
+            "kode_pos" => "min:5|regex:/^[0-9]+$/",
+            "pic" => "image|max:2048"
         ], 
         [
             "id_supplier.max" => "ID Supplier Maksimal 6 Karakter",
@@ -72,11 +83,20 @@ class Csupplier extends Controller
             "kode_pos.regex" => "Kode Pos Hanya Boleh Angka"
         ]);
 
+        $pic = $request->file("pic");
+        $filename = null;
+        if ($pic) {
+            $extension = $pic->getClientOriginalExtension();
+            $filename = date("YmdHis") . "." . $extension;
+            $pic->move(public_path("uploads/supplier_pic"), $filename);
+        }
+
         $supplier->id_supplier = $request->id_supplier;
         $supplier->nama = $request->nama;
         $supplier->alamat = $request->alamat;
         $supplier->kode_pos = $request->kode_pos;
         $supplier->kota = $request->kota;
+        $supplier->pic = $filename;
         $supplier->save();
 
         return redirect()->route("supplier.index")->with('update', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Updated', 'icon' => 'success']);
@@ -95,7 +115,7 @@ class Csupplier extends Controller
         ->orderBy("id_supplier")
         ->get();
 
-        return view("Supplier.print_data", compact("supplier"));
+        return view("supplier.print_data", compact("supplier"));
     }
 
     public function export() {

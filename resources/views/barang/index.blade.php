@@ -156,21 +156,23 @@
                             No Foto
                         @endif
                     </td>
-                    <td class="action">
-                        <form action="{{ route('barang.edit', $b->id_barang) }}">
-                            <button type="submit" class="btn btn-info ml-2 mr-2">
-                                <i class="fa fa-edit"></i>
-                            </button>
-                        </form>
-                        <form action="{{ route('barang.delete', $b->id_barang) }}" method="POST"
-                            id="Form{{ $b->id }}">
-                            @csrf
-                            @method('DELETE')
-                            <button type="button" onclick="ConfirmDelete({{ $b->id_barang }}, {{ $b->id }})"
-                                class="btn btn-danger ml-2 mr-2">
-                                <i class="fa fa-trash"></i>
-                            </button>
-                        </form>
+                    <td>
+                        <div class="action">
+                            <form action="{{ route('barang.edit', $b->id_barang) }}">
+                                <button type="submit" class="btn btn-info ml-2 mr-2">
+                                    <i class="fa fa-edit"></i>
+                                </button>
+                            </form>
+                            <form action="{{ route('barang.delete', $b->id_barang) }}" method="POST"
+                                id="Form{{ $b->id }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="button" onclick="ConfirmDelete({{ $b->id_barang }}, {{ $b->id }})"
+                                    class="btn btn-danger ml-2 mr-2">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
                     </td>
                 </tr>
             @endforeach

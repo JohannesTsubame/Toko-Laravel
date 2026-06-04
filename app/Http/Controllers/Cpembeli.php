@@ -25,7 +25,8 @@ class Cpembeli extends Controller
         $request->validate([
             "id_pembeli" => "unique:Pembeli,id_pembeli|max:6",
             "nama" => "string|min:3|regex:/^[\pL\s]+$/u",
-            "kode_pos" => "max:5|regex:/^[0-9]+$/"
+            "kode_pos" => "max:5|regex:/^[0-9]+$/",
+            "pic" => "image|max:2048"
         ],
         [
             "id_pembeli.unique" => "ID Pembeli Sudah Ada",
@@ -35,6 +36,14 @@ class Cpembeli extends Controller
             "kode_pos.max" => "Kode Pos Maksimal 5 Karakter",
             "kode_pos.regex" => "Kode Pos Hanya Boleh Angka"
         ]);
+
+        $pic = $request->file("pic");
+        $filename = null;
+        if ($pic) {
+            $extension = $pic->getClientOriginalExtension();
+            $filename = date("YmdHis") . "." . $extension;
+            $pic->move(public_path("uploads/pembeli_pic"), $filename);
+        }
         
         $pembeli = new Mpembeli();
         $pembeli->id_pembeli = $request->id_pembeli;
@@ -44,6 +53,7 @@ class Cpembeli extends Controller
         $pembeli->kode_pos = $request->kode_pos;
         $pembeli->kota = $request->kota;
         $pembeli->tgl_lahir = $request->tgl_lahir;
+        $pembeli->pic = $filename;
         $pembeli->save();
 
         return redirect()->route("pembeli.index")->with('save', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Saved', 'icon' => 'success']);
@@ -60,7 +70,8 @@ class Cpembeli extends Controller
         $request->validate([
             "id_pembeli" => "max:6|unique:Pembeli,id_pembeli," . $pembeli->id,
             "nama" => "string|min:3|regex:/^[\pL\s]+$/u",
-            "kode_pos" => "max:5|regex:/^[0-9]+$/"
+            "kode_pos" => "max:5|regex:/^[0-9]+$/",
+            "pic" => "image|max:2048"
         ],
         [
             "id_pembeli.unique" => "ID Pembeli Sudah Ada",
@@ -71,6 +82,14 @@ class Cpembeli extends Controller
             "kode_pos.regex" => "Kode Pos Hanya Boleh Angka"
         ]);
 
+        $pic = $request->file("pic");
+        $filename = null;
+        if ($pic) {
+            $extension = $pic->getClientOriginalExtension();
+            $filename = date("YmdHis") . "." . $extension;
+            $pic->move(public_path("uploads/pembeli_pic"), $filename);
+        }
+
         $pembeli->id_pembeli = $request->id_pembeli;
         $pembeli->nama = $request->nama;
         $pembeli->jns_kelamin = $request->jns_kelamin;
@@ -78,6 +97,7 @@ class Cpembeli extends Controller
         $pembeli->kode_pos = $request->kode_pos;
         $pembeli->kota = $request->kota;
         $pembeli->tgl_lahir = $request->tgl_lahir;
+        $pembeli->pic = $filename;
         $pembeli->save();
 
         return redirect()->route("pembeli.index")->with('update', ['judul' => 'Success', 'pesan' => 'Data is Succesfully Updated', 'icon' => 'success']);

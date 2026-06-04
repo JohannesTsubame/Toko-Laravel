@@ -122,6 +122,7 @@
             <th>Alamat</th>
             <th>Kode Pos</th>
             <th>Kota</th>
+            <th style="width: fit-content">Foto</th>
             <th style="width:10%; text-align:center">Action</th>
         </tr>
     </thead>
@@ -133,23 +134,35 @@
                 <td>{{$s->alamat}}</td>
                 <td>{{$s->kode_pos}}</td>
                 <td>{{$s->kota}}</td>
-                <td class="action">
-                    <form action="{{route('supplier.edit', $s->id)}}">
-                        <button type="submit" class="btn btn-info">
-                            <i class="fa fa-edit"></i>
-                        </button>
-                    </form>
-                    <form action="{{route('supplier.delete', $s->id)}}"
-                          method="POST" 
-                          id="Form{{ $s->id }}">
-                        @csrf
-                        @method("DELETE")
-                        <button type="button" 
-                                onclick="ConfirmDelete({{ $s->id_supplier }}, {{ $s->id }})" 
-                                class="btn btn-danger ml-2 mr-2">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </form>
+                <td>
+                    @if ($s->pic)
+                        <a href="{{ asset('uploads/supplier_pic/' . $s->pic) }}" target=_blank>
+                            <img src="{{ asset('uploads/supplier_pic/' . $s->pic) }}"
+                                style="width: 100px; height: auto;" />
+                        </a>
+                    @else
+                        No Foto
+                    @endif
+                </td>
+                <td>
+                    <div class="action">
+                        <form action="{{route('supplier.edit', $s->id)}}">
+                            <button type="submit" class="btn btn-info">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </form>
+                        <form action="{{route('supplier.delete', $s->id)}}"
+                            method="POST" 
+                            id="Form{{ $s->id }}">
+                            @csrf
+                            @method("DELETE")
+                            <button type="button" 
+                                    onclick="ConfirmDelete({{ $s->id_supplier }}, {{ $s->id }})" 
+                                    class="btn btn-danger ml-2 mr-2">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
                 </td>
             </tr>
         @endforeach

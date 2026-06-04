@@ -60,7 +60,7 @@
         </a>
     </div>
     <div class="card-body">
-        <form id="Form" class="form-grid" action="{{route('pembeli.save')}}" method="POST">
+        <form id="Form" class="form-grid" action="{{route('pembeli.save')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group row">
                 <label class="col-sm-2">ID Pembeli :</label>
@@ -126,6 +126,18 @@
                 <label class="col-sm-2">Alamat :</label>
                 <div class="col-sm-10">
                     <textarea name="alamat" class="form-control" required></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2">Foto</label>
+                <div class="col-sm-10">
+                    <input type="file" name="pic" class="form-control" accept=".jpg, .jpeg, .png, .webp">
+                </div>
+                <div class ="error" style="margin-top: 10px">
+                    @error('pic')
+                    {{$message}}
+                    @enderror
                 </div>
             </div>
 

@@ -60,7 +60,7 @@
         </a>
     </div>
     <div class="card-body">
-        <form id="Form" class="form-grid" action="{{route('pembeli.update', $pembeli->id)}}" method="POST">
+        <form id="Form" class="form-grid" action="{{route('pembeli.update', $pembeli->id)}}" method="POST" enctype="multipart/form-data">
             @csrf
             @method("PUT")
             <div class="form-group row">
@@ -138,6 +138,18 @@
                               class="form-control" 
                               required>{{old("alamat", $pembeli->alamat)}} 
                     </textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-2">Foto</label>
+                <div class="col-sm-10">
+                    <input type="file" name="pic" class="form-control" accept=".jpg, .jpeg, .png, .webp"> 
+                </div>
+                <div class ="error" style="margin-top: 10px">
+                    @error('pic')
+                    {{$message}}
+                    @enderror
                 </div>
             </div>
 

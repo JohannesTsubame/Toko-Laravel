@@ -125,6 +125,7 @@
             <th>Kode Pos</th>
             <th>Alamat</th>
             <th style="width: 10%">Tanggal Lahir</th>
+            <th style="width: fit-content">Foto</th>
             <th style="width:10%; text-align:center">Action</th>
         </tr>
     </thead>
@@ -139,25 +140,36 @@
                 <td>{{$p->kode_pos}}</td>
                 <td>{{$p->alamat}}</td>
                 <td>{{$p->tgl_lahir}}</td>
-                <td class="action">
-                    <form action="{{route('pembeli.edit', $p->id)}}">
-                        <button type="submit" class="btn btn-info ml-2 mr-2">
-                            <i class="fa fa-edit"></i>
-                        </button>
-                    </form>
-                    <form action="{{route('pembeli.delete', $p->id)}}"      
-                          method="POST" 
-                          id="Form{{ $p->id }}">
-                        @csrf
-                        @method("DELETE")
-                        <button type="button" 
-                                onclick="ConfirmDelete({{ $p->id_pembeli }}, {{ $p->id }})" 
-                                class="btn btn-danger ml-2 mr-2">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </form>
+                <td>
+                    @if ($p->pic)
+                        <a href="{{ asset('uploads/pembeli_pic/' . $p->pic) }}" target=_blank>
+                            <img src="{{ asset('uploads/pembeli_pic/' . $p->pic) }}"
+                                style="width: 100px; height: auto;" />
+                        </a>
+                    @else
+                        No Foto
+                    @endif
                 </td>
-
+                <td>
+                    <div class="action">
+                        <form action="{{route('pembeli.edit', $p->id)}}">
+                            <button type="submit" class="btn btn-info ml-2 mr-2">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </form>
+                        <form action="{{route('pembeli.delete', $p->id)}}"      
+                            method="POST" 
+                            id="Form{{ $p->id }}">
+                            @csrf
+                            @method("DELETE")
+                            <button type="button" 
+                                    onclick="ConfirmDelete({{ $p->id_pembeli }}, {{ $p->id }})" 
+                                    class="btn btn-danger ml-2 mr-2">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
             </tr>
         @endforeach
 
