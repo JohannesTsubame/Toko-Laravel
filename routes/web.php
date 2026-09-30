@@ -10,7 +10,9 @@ use App\Http\Controllers\Cbarang;
 use App\Http\Controllers\Cpembeli;
 use App\Http\Controllers\Csupplier;
 use App\Http\Controllers\Cpesanan;
-use App\Http\Controllers\Cpembelian;    
+use App\Http\Controllers\Cpembelian;  
+use App\Http\Controllers\Ctest;  
+use App\Http\Controllers\Cbuku_API;
 
 Route::middleware("guest")->group(function() {
     Route::get("/login", [Clogin::class, 'index'])->name('login');
@@ -67,6 +69,13 @@ Route::middleware("auth")->group(function() {
     Route::get('/supplier/print_data', [Csupplier::class, 'print_data'])->name('supplier.print_data');
     Route::get('/supplier/export', [Csupplier::class, 'export'])->name('supplier.export');
 
+    Route::get('/test', [Ctest::class, "index"])->name("test.index");
+    Route::get('/test2', [Ctest::class, "index2"])->name("test.index2");
+    Route::get('/test3', [Ctest::class, "index3"])->name("test.index3");
+    Route::get('/test5', [Ctest::class, "index5"])->name("test.index5");
+
+    Route::get("/buku", [Cbuku_API::class, "index"])->name("buku.index");
+
     Route::post('/logout', function () {
         Auth::logout();
         request()->session()->invalidate();
@@ -74,5 +83,8 @@ Route::middleware("auth")->group(function() {
         return redirect('/login');
     })->name('logout');
 });
+
+
+
 
 

@@ -127,7 +127,40 @@
                         </a>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="{{route('test.index')}}" class="nav-link">
+                            <i class="icon ion-ios-people"></i>
+                            <span>MHS 1</span>
+                        </a>
+                    </li>
 
+                    <li class="nav-item">
+                        <a href="{{route('test.index2')}}" class="nav-link">
+                            <i class="icon ion-ios-people"></i>
+                            <span>MHS 2</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('test.index3')}}" class="nav-link">
+                            <i class="icon ion-ios-people"></i>
+                            <span>MHS 3</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('test.index5')}}" class="nav-link">
+                            <i class="icon ion-ios-people"></i>
+                            <span>MHS 5</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{route('buku.index')}}" class="nav-link">
+                            <i class="icon ion-ios-book"></i>
+                            <span>Buku</span>
+                        </a>
+                    </li>
 
                     <!--
                     <li class="nav-item">
