@@ -5,21 +5,21 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class Cmhs2 extends Controller
+class Cmhs1 extends Controller
 {
     public function index() {
-        $response = Http::get("https://pbp.stmikbanjarbaru.com/api/mhs2");
-        $data = $response->json();
-        return view("mhs2.index", compact("data"));
+        $response = Http::get("https://pbp.stmikbanjarbaru.com/api/mhs");
+        $data = $response->json("data", []);
+        return view("mhs1.index", compact("data"));
     }
 
     public function add() {
-        return view('mhs2.add');
+        return view('mhs1.add');
     }
     
     public function save(Request $request) {
         $response = Http::post(
-            'https://pbp.stmikbanjarbaru.com/api/mhs2',
+            'https://pbp.stmikbanjarbaru.com/api/mhs',
             [
                 'nim'           => $request->nim,
                 'nama'          => $request->nama,
@@ -33,7 +33,7 @@ class Cmhs2 extends Controller
 
         if ($response->successful()) {
             return redirect()
-                ->route('mhs2.index')
+                ->route('mhs1.index')
                 ->with('success', 'Data successfully added');
         }
 

@@ -54,8 +54,8 @@
 
 <div class="card">
     <div class="card-header" style="background: #303a4e">
-        <h2 style="color:white">Tambah Data Mahasiswa 1</h2>
-        <a href="{{route('test.index2')}}">
+        <h2 style="color:white">Tambah Data Mahasiswa 2</h2>
+        <a href="{{route('mhs2.index')}}">
             <i class="fa fa-arrow-left" style="color: white; font-size:40px"></i>
         </a>
     </div>

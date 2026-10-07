@@ -55,12 +55,12 @@
 <div class="card">
     <div class="card-header" style="background: #303a4e">
         <h2 style="color:white">Tambah Data Mahasiswa 1</h2>
-        <a href="{{route('test.index')}}">
+        <a href="{{route('mhs1.index')}}">
             <i class="fa fa-arrow-left" style="color: white; font-size:40px"></i>
         </a>
     </div>
     <div class="card-body">
-        <form id="Form" action="{{route('mhs_api.save')}}" method="POST">
+        <form id="Form" action="{{route('mhs1.save')}}" method="POST">
             @csrf
             <div class="form-group row">
                 <label class="col-sm-2">NIM :</label>
@@ -154,17 +154,17 @@
                 </div>
             </div>
 
-            {{-- <div class="action">
+            <div class="action">
                 <button type="button" 
                         class="btn btn-primary" 
                         style="font-size: 20px"
                         onclick="ConfirmAdd()">
                     <i class="fa fa-save mr-2"> </i> Save
                 </button>
-            </div> --}}
-            <button type="submit" class="btn btn-primary">
+            </div>
+            {{-- <button type="submit" class="btn btn-primary">
                 <i class="fa fa-save mr-2"></i> Save
-            </button>
+            </button> --}}
         </form>
     </div>
 </div>

@@ -93,10 +93,9 @@
 @endif
 
 <div class ="Header">
-    <h1>TABLE MHS3 :</h1>
-
-    {{-- <div style="display: flex">
-        <form action="{{ route('supplier.print_data') }}" target="_blank">
+    <h1>TABLE MHS 1 :</h1>
+    <div style="display: flex">
+        {{-- <form action="{{ route('supplier.print_data') }}" target="_blank">
             <button type="submit" class="btn btn-danger ml-2 w-90">
                 <i class="fa fa-print"></i> Print Data
             </button>
@@ -105,13 +104,13 @@
             <button type="submit" class="btn btn-success ml-2 w-90">
                 <i class="fa fa-table"></i> Export Data
             </button>
-        </form>
-        <form action="{{ route('supplier.add') }}">
+        </form> --}}
+        <form action="{{ route('mhs1.add') }}">
             <button type="submit" class ="btn btn-primary ml-2 w-90">
                 <i class="fa fa-plus"></i> Add Data
             </button>
         </form>
-    </div> --}}
+    </div>
 </div>
 
 <table style="width: 100%" class="table table-bordered table-hover">

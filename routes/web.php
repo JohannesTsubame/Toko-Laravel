@@ -11,10 +11,13 @@ use App\Http\Controllers\Cpembeli;
 use App\Http\Controllers\Csupplier;
 use App\Http\Controllers\Cpesanan;
 use App\Http\Controllers\Cpembelian;  
-use App\Http\Controllers\Ctest;  
 use App\Http\Controllers\Cbuku_API;
 use App\Http\Controllers\Cgames;
+use App\Http\Controllers\Cmhs1;
 use App\Http\Controllers\Cmhs2;
+use App\Http\Controllers\Cmhs3;
+use App\Http\Controllers\Cmhs4;
+use App\Http\Controllers\Cmhs5;
 
 Route::middleware("guest")->group(function() {
     Route::get("/login", [Clogin::class, 'index'])->name('login');
@@ -71,18 +74,29 @@ Route::middleware("auth")->group(function() {
     Route::get('/supplier/print_data', [Csupplier::class, 'print_data'])->name('supplier.print_data');
     Route::get('/supplier/export', [Csupplier::class, 'export'])->name('supplier.export');
 
-    Route::get('/test', [Ctest::class, "index"])->name("test.index");
-    Route::get("/mhs_api/add", [Ctest::class, "add"])->name("mhs_api.add");
-    Route::post("/mhs_api/save", [Ctest::class, "save"])->name("mhs_api.save");
+    Route::get('/mhs1', [Cmhs1::class, "index"])->name("mhs1.index");
+    Route::get("/mhs1/add", [Cmhs1::class, "add"])->name("mhs1.add");
+    Route::post("/mhs1/save", [Cmhs1::class, "save"])->name("mhs1.save");
 
-    Route::get('/test2', [Ctest::class, "index2"])->name("test.index2");
-    Route::get("/mhs_api2/add", [Cmhs2::class, "add"])->name("mhs_api2.add");
-    Route::post("/mhs_api2/save", [Cmhs2::class, "save"])->name("mhs_api2.save");
+    Route::get('/mhs2', [Cmhs2::class, "index"])->name("mhs2.index");
+    Route::get("/mhs2/add", [Cmhs2::class, "add"])->name("mhs2.add");
+    Route::post("/mhs2/save", [Cmhs2::class, "save"])->name("mhs2.save");
 
-    Route::get('/test3', [Ctest::class, "index3"])->name("test.index3");
-    Route::get('/test5', [Ctest::class, "index5"])->name("test.index5");
+    // Route::get('/mhs3', [Cmhs3::class, "index"])->name("mhs3.index");
+    // Route::get("/mhs3/add", [Cmhs3::class, "add"])->name("mhs3.add");
+    // Route::post("/mhs3/save", [Cmhs3::class, "save"])->name("mhs3.save");
+
+    // Route::get('/mhs4', [Cmhs4::class, "index"])->name("mhs4.index");
+    // Route::get("/mhs4/add", [Cmhs4::class, "add"])->name("mhs4.add");
+    // Route::post("/mhs4/save", [Cmhs4::class, "save"])->name("mhs4.save");
+
+    // Route::get('/mhs5', [Cmhs5::class, "index"])->name("mhs5.index");
+    // Route::get("/mhs5/add", [Cmhs5::class, "add"])->name("mhs5.add");
+    // Route::post("/mhs5/save", [Cmhs5::class, "save"])->name("mhs5.save");
 
     Route::get("/buku", [Cbuku_API::class, "index"])->name("buku.index");
+    Route::get("/buku/add", [Cbuku_API::class, "add"])->name("buku.add");
+    Route::post("/buku/save", [Cbuku_API::class, "save"])->name("buku.save");
 
     Route::get("/games", [Cgames::class, "index"])->name("games.index");
 

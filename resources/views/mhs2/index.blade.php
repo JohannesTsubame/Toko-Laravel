@@ -29,7 +29,7 @@
                 icon : 'warning',
                 iconColor : "#ff2222",
                 title : "Are You Sure You Want to Delete this Data?",
-                text : `Data ID B-${item}`,
+                text : `Data ID S-${item}`,
                 confirmButtonText : 'Delete',
                 confirmButtonColor : "#ff2222",
                 showCancelButton : true,
@@ -45,7 +45,7 @@
     </script>
 </head>
 
-@extends('menu')
+@extends("menu")
 @section("content")
 
 @if(session('save'))
@@ -59,7 +59,7 @@
             showConfirmButton : false,
             timer : 2800,
             timerProgressBar : true,
-            position :  "bottom-end",
+            position :  "bottom-end"
         });
     </script>
 @elseif(session("update"))
@@ -73,7 +73,7 @@
             showConfirmButton : false,
             timer : 2800,
             timerProgressBar : true,
-            position :  "bottom-end",
+            position :  "bottom-end"
         });
     </script>
 @elseif(session("delete"))
@@ -92,61 +92,52 @@
     </script>
 @endif
 
-<div class = "Header">       
-    <h1>Table Buku</h1>
-
+<div class ="Header">
+    <h1>TABLE MHS 2 :</h1>
     <div style="display: flex">
-        {{-- <form action="{{route('buku.print_data')}}" class="mt-2" target="_blank">
-            <button type="submit" class="btn btn-danger ml-2">
-                <i class="fa fa-print"></i> Print Data     
+        {{-- <form action="{{ route('supplier.print_data') }}" target="_blank">
+            <button type="submit" class="btn btn-danger ml-2 w-90">
+                <i class="fa fa-print"></i> Print Data
             </button>
         </form>
-
-        <form action="{{route('buku.export')}}" class="mt-2" target="_blank">
-            <button type="submit" class="btn btn-success ml-2">
-                <i class="fa fa-table"></i> Export Data     
+        <form action="{{ route('supplier.export') }}" target="_blank">
+            <button type="submit" class="btn btn-success ml-2 w-90">
+                <i class="fa fa-table"></i> Export Data
             </button>
         </form> --}}
-
-        <form action="{{route('buku.add')}}" class="mt-2">
-            <button type="submit" class="btn btn-primary ml-2">
-                <i class="fa fa-plus"></i> Add Data     
+        <form action="{{ route('mhs2.add') }}">
+            <button type="submit" class ="btn btn-primary ml-2 w-90">
+                <i class="fa fa-plus"></i> Add Data
             </button>
         </form>
     </div>
 </div>
 
-<table class="table table-bordered table-hover flex-1" style="width:100%">
+<table style="width: 100%" class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th style="width: 4%">No</th>
-            <th>Kode Buku</th>
-            <th>Judul</th>
-            <th>Penulis</th>
-            <th>Penerbit</th>
-            <th>Tahun Terbit</th>
-            <th>Nama Kategori</th>
-            <th>Deskripsi</th>
-            {{-- <th>Kategori</th>
-            <th>Deskripsi</th> --}}
+        <th style="width: 5%">No</th>
+        <th>NIM</th>
+        <th>Nama Mahasiswa</th>
+        <th>Prodi</th>
+        <th>No HP</th>
+        <th>Kelas</th>
+        <th>Update At</th>
         </tr>
     </thead>
     <tbody>
-        @foreach($data as $d)
-        <tr>
-            <td>{{$loop->iteration}}</td>
-            <td>B-{{$d["kode_buku"]}}</td>
-            <td>{{$d["judul"]}}</td>
-            <td>{{$d["penulis"]}}</td>
-            <td>{{$d["penerbit"]}}</td>
-            <td>{{$d["tahun_terbit"]}}</td>
-            <td>{{$d["nama_kategori"]}}</td>
-            <td>{{$d["deskripsi"]}}</td>
-            {{-- <td>{{$d["kategori_id"]}}</td>
-            <td>{{$d["deskripsi"]}}</td> --}}
-        </tr>
+        @foreach ($data as $d)
+            <tr>
+                <td>{{$loop -> iteration }}</td>
+                <td>{{ $d["nim"] }}</td>
+                <td>{{ $d["nama"] }}</td>
+                <td>{{ $d["prodi"] }}</td>
+                <td>{{ $d["telpon"] }}</td>
+                <td>{{ $d["kelas"] }}</td>
+                <td>{{ $d["updated_at"] }}</td>
+            </tr>
         @endforeach
     </tbody>
 </table>
 
-@endsection
+@endsection 

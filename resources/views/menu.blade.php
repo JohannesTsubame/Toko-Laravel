@@ -128,62 +128,30 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('test.index')}}" class="nav-link">
+                        <a href="{{route('mhs1.index')}}" class="nav-link">
                             <i class="icon ion-ios-people"></i>
                             <span>MHS 1</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('test.index2')}}" class="nav-link">
+                        <a href="{{route('mhs2.index')}}" class="nav-link">
                             <i class="icon ion-ios-people"></i>
                             <span>MHS 2</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="{{route('test.index3')}}" class="nav-link">
-                            <i class="icon ion-ios-people"></i>
-                            <span>MHS 3</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="{{route('test.index5')}}" class="nav-link">
-                            <i class="icon ion-ios-people"></i>
-                            <span>MHS 5</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
                         <a href="{{route('buku.index')}}" class="nav-link">
-                            <i cla
-                            ss="icon ion-ios-book"></i>
+                            <i class="icon ion-ios-book"></i>
                             <span>Buku</span>
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="{{route('games.index')}}" class="nav-link">
-                            <i cla
-                            ss="icon ion-ios-game"></i>
+                            <i class="icon ion-ios-game-controller-b"></i>
                             <span>Game</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="{{route('mhs_api.add')}}" class="nav-link">
-                            <i cla
-                            ss="icon ion-ios-game"></i>
-                            <span>Tambah MHS 1</span>
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a href="{{route('mhs_api2.add')}}" class="nav-link">
-                            <i cla
-                            ss="icon ion-ios-game"></i>
-                            <span>Tambah MHS 2</span>
                         </a>
                     </li>
 
