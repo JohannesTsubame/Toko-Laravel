@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 
 class Ctest extends Controller
 {
@@ -73,5 +74,34 @@ class Ctest extends Controller
         $response = Http::get("https://pbp.stmikbanjarbaru.com/api/mhs");
         $data = $response->json("data", []);
         return view("test.index", compact("data"));
+    }
+
+    public function add() {
+        return view('mhs_api.add');
+    }
+    
+    public function save(Request $request) {
+        $response = Http::post(
+            'https://pbp.stmikbanjarbaru.com/api/mhs',
+            [
+                'nim'           => $request->nim,
+                'nama'          => $request->nama,
+                'jenis_kelamin' => $request->jenis_kelamin,
+                'tanggal_lahir' => $request->tanggal_lahir,
+                'telpon'        => $request->telpon,
+                'prodi'         => $request->prodi,
+                'kelas'         => $request->kelas
+            ]
+        );
+
+        if ($response->successful()) {
+            return redirect()
+                ->route('test.index')
+                ->with('success', 'Data successfully added');
+        }
+
+        return back()
+            ->withInput()
+            ->with('error', $response->json('message', 'Gagal menyimpan data'));
     }
 }

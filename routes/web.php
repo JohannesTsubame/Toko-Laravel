@@ -13,6 +13,8 @@ use App\Http\Controllers\Cpesanan;
 use App\Http\Controllers\Cpembelian;  
 use App\Http\Controllers\Ctest;  
 use App\Http\Controllers\Cbuku_API;
+use App\Http\Controllers\Cgames;
+use App\Http\Controllers\Cmhs2;
 
 Route::middleware("guest")->group(function() {
     Route::get("/login", [Clogin::class, 'index'])->name('login');
@@ -70,11 +72,19 @@ Route::middleware("auth")->group(function() {
     Route::get('/supplier/export', [Csupplier::class, 'export'])->name('supplier.export');
 
     Route::get('/test', [Ctest::class, "index"])->name("test.index");
+    Route::get("/mhs_api/add", [Ctest::class, "add"])->name("mhs_api.add");
+    Route::post("/mhs_api/save", [Ctest::class, "save"])->name("mhs_api.save");
+
     Route::get('/test2', [Ctest::class, "index2"])->name("test.index2");
+    Route::get("/mhs_api2/add", [Cmhs2::class, "add"])->name("mhs_api2.add");
+    Route::post("/mhs_api2/save", [Cmhs2::class, "save"])->name("mhs_api2.save");
+
     Route::get('/test3', [Ctest::class, "index3"])->name("test.index3");
     Route::get('/test5', [Ctest::class, "index5"])->name("test.index5");
 
     Route::get("/buku", [Cbuku_API::class, "index"])->name("buku.index");
+
+    Route::get("/games", [Cgames::class, "index"])->name("games.index");
 
     Route::post('/logout', function () {
         Auth::logout();
